@@ -9,6 +9,7 @@ morgan.token('body', (req, res) => {
 app.use(express.json())
 app.use(cors())
 app.use(morgan("tiny :body"))
+app.use(express.static('dist'))
 let persons = [
     {
         "id": "1",
@@ -88,7 +89,7 @@ app.post('/api/persons', (request, response) => {
     response.json(person)
 })
 
-const PORT = 3001
+const PORT = process.env.PORT|| 3001
 
 app.listen(PORT)
 console.log(`Server listening ${PORT} port`)
