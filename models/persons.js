@@ -3,7 +3,7 @@ mongoose.set('strictQuery', false)
 
 const url = process.env.MONGODB_URI
 mongoose.connect(url)
-.then(res => console.log('connected to mongoDb'))
+.then(() => console.log('connected to mongoDb'))
 .catch(err => console.log('error connect to mongoDb', err))
 
 const personSchema = mongoose.Schema({
